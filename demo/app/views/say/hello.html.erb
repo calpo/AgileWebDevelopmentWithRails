@@ -8,3 +8,14 @@
 <p>
   @time : <%=@time%>
 </p>
+<p>
+  <%=link_to "さようなら", say_goodbye_path%> と表示
+</p>
+<p>
+  glob :
+  <ul>
+    <%for file in @files%>
+      <li><%=file%></li>
+    <%end%>
+  </ul>
+</p>
