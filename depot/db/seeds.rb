@@ -37,5 +37,5 @@ Product.create(title: 'アジャイルサムライ',
     %{<p>
 	    はやくよみたい。
       </p>},
-  image_url: 'rtp.jpg',
+  image_url: 'as.jpg',
   price: 29.80)
