@@ -3,7 +3,7 @@
 require 'test_helper'
 
 class ProductTest < ActiveSupport::TestCase
-  test "product attributes must hot be empty" do
+  test "product の属性の値に空は許されない" do
     product = Product.new
     assert product.invalid?
     assert product.errors[:title].any?
@@ -13,26 +13,13 @@ class ProductTest < ActiveSupport::TestCase
   end
 
   test "価格に負の値は設定できない" do
-    product = get_product
-
-    product.price = -1
-    assert product.invalid?
-    assert_equal "must be greater than or equal to 0.01",
-      product.errors[:price].join('; ')
+    assert_invalid_price -1
+    assert_invalid_price -0.009
   end
 
   test "価格に0.01未満は設定できない" do
-    product = get_product
-
-    product.price = 0
-    assert product.invalid?
-    assert_equal "must be greater than or equal to 0.01",
-      product.errors[:price].join('; ')
-
-    product.price = 0.009
-    assert product.invalid?
-    assert_equal "must be greater than or equal to 0.01",
-      product.errors[:price].join('; ')
+    assert_invalid_price 0
+    assert_invalid_price 0.009
   end
 
   test "価格に正の値を設定できる" do
@@ -51,5 +38,14 @@ class ProductTest < ActiveSupport::TestCase
       description:  "yyy",
       image_url:    "zzz.jpg"
     )
+  end
+
+  def assert_invalid_price (price)
+    product = get_product
+    product.price = price
+
+    assert product.invalid?
+    assert_equal "must be greater than or equal to 0.01",
+      product.errors[:price].join('; ')
   end
 end
