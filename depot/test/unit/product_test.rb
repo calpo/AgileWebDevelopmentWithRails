@@ -5,6 +5,17 @@ require 'test_helper'
 class ProductTest < ActiveSupport::TestCase
   fixtures :products
 
+  test "product 内で title はユニークでなければならない" do
+    product = new_product
+    product.title = products(:ruby).title
+
+    assert product.invalid?
+    assert_equal "has already been taken", product.errors[:title].join('; ')
+
+    assert !product.save
+    assert_equal "has already been taken", product.errors[:title].join('; ')
+  end
+
   test "product の属性の値に空は許されない" do
     product = Product.new
     assert product.invalid?
