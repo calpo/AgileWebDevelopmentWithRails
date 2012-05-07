@@ -23,7 +23,7 @@ class ProductTest < ActiveSupport::TestCase
   end
 
   test "価格に正の値を設定できる" do
-    product = get_product
+    product = new_product
 
     product.price = 0.01
     assert product.valid?
@@ -32,16 +32,37 @@ class ProductTest < ActiveSupport::TestCase
     assert product.valid?
   end
 
-  def get_product
+  test "image_url に不正なフォーマットのURLを設定できない" do
+    bad = %w{ fred.txt fredjpg fred.jpg/more fred.jpg.more fred.jpg?more }
+
+    product = new_product
+    bad.each do |name|
+      product.image_url = name
+      assert product.invalid?, "#{name} は設定出来てはいけません"
+    end
+  end
+
+  test "image_url に正しいフォーマットのURLを設定できる" do
+    ok = %w{ fred.gif fred.jpg fred.png fred.GIF fred.JPG fred.PNG http://example.com/fred.jpg }
+
+    product = new_product
+    ok.each do |name|
+      product.image_url = name
+      assert product.valid?, "#{name} は設定出来なければなりません"
+    end
+  end
+
+  def new_product
     Product.new(
       title:        "My Book Title",
       description:  "yyy",
+      price:        1,
       image_url:    "zzz.jpg"
     )
   end
 
   def assert_invalid_price (price)
-    product = get_product
+    product = new_product
     product.price = price
 
     assert product.invalid?
