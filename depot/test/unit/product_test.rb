@@ -14,6 +14,10 @@ class ProductTest < ActiveSupport::TestCase
 
     assert !product.save
     assert_equal "has already been taken", product.errors[:title].join('; ')
+
+    assert product.invalid?
+    assert_equal I18n.translate('activerecord.errors.messages.taken'),
+       product.errors[:title].join('; ')
   end
 
   test "product の属性の値に空は許されない" do
