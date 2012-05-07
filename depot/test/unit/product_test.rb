@@ -3,6 +3,8 @@
 require 'test_helper'
 
 class ProductTest < ActiveSupport::TestCase
+  fixtures :products
+
   test "product の属性の値に空は許されない" do
     product = Product.new
     assert product.invalid?
