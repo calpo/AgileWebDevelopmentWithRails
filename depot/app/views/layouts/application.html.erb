@@ -15,10 +15,12 @@
     <div id="side">
       <p class="message"><%= Time.now.strftime "%Y/%m/%d %H:%M" %></p>
       <ul>
-        <li><a href="#">ホーム</a></li>
+        <li><a href="/">ホーム</a></li>
         <li><a href="#">よくある質問</a></li>
         <li><a href="#">ニュース</a></li>
         <li><a href="#">お問い合わせ</a></li>
+        <li><%= link_to 'カートを見る', @current_cart %></li>
+
       </ul>
     </div>
     <div id="main">
