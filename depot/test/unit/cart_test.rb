@@ -3,6 +3,8 @@
 require 'test_helper'
 
 class CartTest < ActiveSupport::TestCase
+  fixtures :carts
+
   test "add_product productが既に登録されている場合は量が増える" do
     @cart = Cart.find 1
     @item = @cart.add_product 1
