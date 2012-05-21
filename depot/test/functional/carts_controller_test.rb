@@ -42,9 +42,7 @@ class CartsControllerTest < ActionController::TestCase
 
   test "should destroy cart" do
     assert_difference('Cart.count', -1) do
-      Cart.all.each {|cart| p cart }
-      delete :destroy, {id: @cart.to_param}, {cart_id: @cart_id}
-      Cart.all.each {|cart| p cart }
+      delete :destroy, {id: @cart.to_param}, {cart_id: @cart.id}
     end
 
     assert_redirected_to store_path
