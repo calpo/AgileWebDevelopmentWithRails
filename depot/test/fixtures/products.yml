@@ -10,7 +10,7 @@ two:
   title: MyString
   description: MyText
   image_url: MyString
-  price: 9.99
+  price: 4.99
 
 ruby:
   title:    Programming Ruby 1.9
