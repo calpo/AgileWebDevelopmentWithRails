@@ -77,7 +77,7 @@ class LineItemsController < ApplicationController
   # DELETE /line_items/1.json
   def destroy
     @line_item = LineItem.find(params[:id])
-    @line_item.delete_product(@line_item.product_id)
+    @line_item.destroy
 
     respond_to do |format|
       format.html { redirect_to current_cart, notice: '削除しました' }
