@@ -48,7 +48,7 @@ class LineItemsController < ApplicationController
 
     respond_to do |format|
       if @line_item.save
-        format.html { redirect_to @line_item.cart, notice: 'カートに追加しました' }
+        format.html { redirect_to store_url notice: 'カートに追加しました' }
         format.json { render json: @line_item, status: :created, location: @line_item }
       else
         format.html { render action: "new" }
@@ -80,7 +80,7 @@ class LineItemsController < ApplicationController
     @line_item.destroy
 
     respond_to do |format|
-      format.html { redirect_to current_cart, notice: '削除しました' }
+      format.html { redirect_to store_url, notice: '削除しました' }
       format.json { head :no_content }
     end
   end

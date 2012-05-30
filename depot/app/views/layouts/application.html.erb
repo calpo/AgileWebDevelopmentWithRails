@@ -13,6 +13,10 @@
   </div>
   <div id="columns">
     <div id="side">
+      <div id="cart">
+        <%= render @cart %>
+      </div>
+
       <p class="message"><%= Time.now.strftime "%Y/%m/%d %H:%M" %></p>
       <ul>
         <li><a href="/">ホーム</a></li>

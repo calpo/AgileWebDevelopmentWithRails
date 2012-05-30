@@ -1,6 +1,8 @@
     <tr>
-      <td><%= button_to '削除', line_item, method: :delete %></td>
-      <td><%= line_item.quantity %>&times;</td>
+      <td>
+        <%= button_to '削除', line_item, method: :delete %>
+        <%= line_item.quantity %>&times;
+      </td>
       <td><%= line_item.product.title %> (<%= number_to_currency line_item.product.price %>)</td>
       <td class="item_price"><%= number_to_currency(line_item.total_price) %></td>
     </tr>
