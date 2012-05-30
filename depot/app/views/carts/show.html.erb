@@ -2,22 +2,4 @@
 <p id="notice"><%= notice %></p>
 <% end %>
 
-<div class="cart_title">カート</div>
-<table>
-  <% @cart.line_items.each do |item| %>
-    <tr>
-      <td><%= button_to '削除', item, method: :delete %></td>
-      <td><%= item.quantity %>&times;</td>
-      <td><%= item.product.title %> (<%= number_to_currency item.product.price %>)</td>
-      <td class="item_price"><%= number_to_currency(item.total_price) %></td>
-    </tr>
-  <% end %>
-
-  <tr class="total_line">
-    <td colspan="3">合計</td>
-    <td class="total_cell"><%= number_to_currency(@cart.total_price) %></td>
-  </tr>
-
-</table>
-
-<%= button_to 'カートを空にする', @cart, method: :delete, confirm: '本当に空にしますか？' %>
+<%= render @cart %>
