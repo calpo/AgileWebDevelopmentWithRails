@@ -1,3 +1,7 @@
+if ($('#cart tr').length == 1) {
+  $('#cart').fadeIn('slow');
+}
+
 $('#cart').html("<%= j render @cart %>");
 
 $('#current_item').css({"background-color":"#88ff88"})
