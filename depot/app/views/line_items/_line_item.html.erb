@@ -1,4 +1,8 @@
+   <% if line_item == @current_item %>
+    <tr id="current_item">
+   <% else %>
     <tr>
+   <% end %>
       <td>
         <%= button_to '削除', line_item, method: :delete %>
         <%= line_item.quantity %>&times;
