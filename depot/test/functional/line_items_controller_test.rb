@@ -52,11 +52,9 @@ class LineItemsControllerTest < ActionController::TestCase
 
   test "should destroy line_item" do
     assert_difference('LineItem.count', -1) do
-      p LineItem.all
-      p @line_item.to_param
       delete :destroy, id: @line_item.to_param
     end
 
-    assert_redirected_to Cart.find session[:cart_id]
+    assert_redirected_to store_path
   end
 end
