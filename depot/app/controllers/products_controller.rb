@@ -84,6 +84,9 @@ class ProductsController < ApplicationController
   def who_bought
     @product = Product.find(params[:id])
     respond_to do |format|
+      format.html # who_bought.html.erb
+      format.json { render json: @product.to_json(include: :orders) }
+      format.xml { render xml: @product.to_xml(include: :orders) }
       format.atom
     end
   end
