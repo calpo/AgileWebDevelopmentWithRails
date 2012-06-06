@@ -12,10 +12,7 @@ class CartTest < ActiveSupport::TestCase
   end
 
   test "add_product productがまだ登録されていない場合は追加される" do
-    @cart = Cart.new(id: 99999)
-
-    # テストの前提条件 line_itemsの登録が無いことを念のため確認
-    assert_equal 0, @cart.line_items.count
+    @cart = Cart.new(id: 999999)
 
     @item = @cart.add_product 1
     assert_equal 1, @item.quantity

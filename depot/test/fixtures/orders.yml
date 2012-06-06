@@ -7,7 +7,7 @@ one:
   pay_type: "現金"
 
 two:
-  name: MyString
+  name: Jhon Smith
   address: MyText
-  email: MyString
-  pay_type: MyString
+  email: jhon@example.org
+  pay_type: "現金"

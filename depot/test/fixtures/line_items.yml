@@ -10,3 +10,7 @@ two:
   product_id: 2
   cart_id: 1
   quantity: 2
+
+three:
+  product: ruby
+  order: two
