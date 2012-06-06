@@ -15,5 +15,6 @@
 
 <table>
   <tr><th colspan="2">数量</th><th>説明</th></tr>
-<%= render @order.line_items %>
+  <%= render partial: 'line_items/line_item_simple', collection: @order.line_items,
+      as: :line_item %>
 </table>
