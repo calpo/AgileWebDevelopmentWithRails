@@ -26,8 +26,15 @@
         <li><a href="#">ニュース</a></li>
         <li><a href="#">お問い合わせ</a></li>
         <li><%= link_to 'show carts', carts_path %></li>
-
       </ul>
+
+      <% if session[:user_id] %>
+        <ul>
+          <li><%= link_to '注文',     orders_path   %></li>
+          <li><%= link_to '商品',     products_path %></li>
+          <li><%= link_to 'ユーザー', users_path    %></li>
+        </ul>
+      <% end %>
     </div>
     <div id="main">
       <%= yield %>
