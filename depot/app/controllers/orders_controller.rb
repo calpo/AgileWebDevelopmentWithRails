@@ -1,6 +1,8 @@
 #encoding: utf-8
 
 class OrdersController < ApplicationController
+  skip_before_filter :authorize, only: [:new, :create]
+
   # GET /orders
   # GET /orders.json
   def index
