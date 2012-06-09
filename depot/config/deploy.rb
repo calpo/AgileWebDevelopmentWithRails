@@ -10,8 +10,8 @@
 # 日本語版については http://ssl.ohmsha.co.jp/cgi-bin/menu.cgi?ISBN=978-4-274-06866-9
 #---
 # be sure to change these
-set :user, 'rubys'
-set :domain, 'depot.pragprog.com'
+set :user, 'calpo'
+set :domain, 'depot.calpomba.com'
 set :application, 'depot'
 
 # adjust if you are using RVM, remove if you are not
@@ -22,7 +22,7 @@ set :rvm_type, :user
 
 # file paths
 set :repository,  "#{user}@#{domain}:git/#{application}.git" 
-set :deploy_to, "/home/#{user}/#{domain}" 
+set :deploy_to, "/usr/docs/#{domain}" 
 
 # distribute your applications across servers (the instructions below put them
 # all on the same server, defined above as 'domain', adjust as necessary)
