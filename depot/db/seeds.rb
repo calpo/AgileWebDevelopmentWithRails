@@ -39,3 +39,5 @@ Product.create(title: 'アジャイルサムライ',
       </p>},
   image_url: 'as.jpg',
   price: 29.80)
+
+User.create(name: 'dave', password_digest: BCrypt::Password.create('secret'))
